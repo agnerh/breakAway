@@ -1,8 +1,9 @@
 <div class="container">
     <h2>Customers</h2>
-    <ul class="list-group">
+    <ol class="list-group">
         <li *ngFor="let customer of list" class="list-group-item">
-            <span>{{customer.id}}.</span> {{customer.firstName}} {{customer.lastName}}
+            <span>id: {{customer.id}}.</span><br />
+            <div>name: {{customer.firstName}} {{customer.lastName}}</div>
         </li>
-    </ul>
+    </ol>
 </div>

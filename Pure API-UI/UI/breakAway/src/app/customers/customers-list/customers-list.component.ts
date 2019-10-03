@@ -1,35 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Customer, CustomerType } from 'src/models/customer';
+import { CustomerService } from '../customer.service';
 
 @Component({
   selector: 'app-customers-list',
   templateUrl: './customers-list.component.html',
   styleUrls: ['./customers-list.component.css']
 })
+
 export class CustomersListComponent implements OnInit {
-  public list = customers;
+  public list: Array<Customer>;
+  
+  constructor(
+    private customerService: CustomerService,
+  ) { }
 
-  constructor() { }
-
-  ngOnInit() {
+  public ngOnInit(): void {
+    this.showCustomers();
   }
+
+  showCustomers() {
+    this.customerService.getCustomers().subscribe(data => this.list = data);
+  }
+
 
 }
-
-const customers: Customer[] = [
-  {
-    id: 1,
-    title: "Mr",
-    firstName: "Henrik",
-    lastName: "Agner",
-    type: CustomerType.Standard
-  },
-  {
-    id: 2,
-    title: "Mrs",
-    firstName: "Maja",
-    lastName: "Agner",
-    type: CustomerType.Gold
-  }
-]

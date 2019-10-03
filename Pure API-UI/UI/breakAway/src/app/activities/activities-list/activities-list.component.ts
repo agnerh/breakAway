@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Activity, ActivityType } from 'src/models/activity';
+import { ActivityService } from '../activity.service';
 
 @Component({
   selector: 'app-activities-list',
@@ -7,25 +9,17 @@ import { Activity, ActivityType } from 'src/models/activity';
   styleUrls: ['./activities-list.component.css']
 })
 export class ActivitiesListComponent implements OnInit {
-  public list = activities;
+  public list: Array<Activity>;
 
-  constructor() { }
+  constructor(
+    private activityService: ActivityService,
+  ) { }
 
-  ngOnInit() {
+  public ngOnInit(): void {
+    this.showCustomers();
   }
 
+  showCustomers() {
+    this.activityService.getActivities().subscribe(data => this.list = data);
+  }
 }
-
-const activities: Activity[] = [
-  {
-    id: 1,
-    title: "Activity 1",
-    type: ActivityType.Standard
-  },
-  {
-    id: 2,
-    title: "Activity 2",
-    type: ActivityType.Gold
-  }
-
-]
