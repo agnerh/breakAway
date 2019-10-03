@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 
 import { Customer, CustomerType } from 'src/models/customer';
 import { CustomerService } from '../customer.service';
@@ -10,7 +10,7 @@ import { CustomerService } from '../customer.service';
 })
 
 export class CustomersListComponent implements OnInit {
-  public list: Array<Customer>;
+  public list1: Array<Customer>;
   
   constructor(
     private customerService: CustomerService,
@@ -21,8 +21,7 @@ export class CustomersListComponent implements OnInit {
   }
 
   showCustomers() {
-    this.customerService.getCustomers().subscribe(data => this.list = data);
+    this.customerService.getCustomers().subscribe(data => this.list1 = data);
   }
-
 
 }

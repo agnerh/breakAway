@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HomeModule } from './home/home.module';
 import { CustomersModule } from './customers/customers.module';
 import { ActivitiesModule } from './activities/activities.module';
 
@@ -15,6 +16,7 @@ import { ActivitiesModule } from './activities/activities.module';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    HomeModule,
     CustomersModule,
     ActivitiesModule
   ],

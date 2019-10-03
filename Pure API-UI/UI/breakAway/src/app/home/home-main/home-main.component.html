@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">{{title}}</h1>
+            <p class="lead">Praesent mattis quam sed dui lobortis rutrum. Nunc sodales diam lacus, aliquam efficitur lorem mattis id. Sed non varius mauris. Etiam quis iaculis eros. In in tristique risus.</p>
+        </div>
+    </div>
+    <div class="container row">
+        <div class="col">
+            <h2>Customers</h2>
+            <ul class="list-group list-unstyled">
+                <li *ngFor="let customer of list1" class="list-group-item">
+                    <span>id: {{customer.id}}.</span><br />
+                    <div>name: {{customer.firstName}} {{customer.lastName}}</div>
+                </li>
+            </ul>
+        </div>
+        <div class="col">
+            <h2>Activities</h2>
+            <ul class="list-group">
+                <li *ngFor="let activity of list2" class="list-group-item">
+                    <span>{{activity.id}}.</span> {{activity.name}}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
