@@ -1,5 +1,7 @@
-<div>
-  <input #searchBox (input)="search(searchBox.value)" placeholder="Search" />
-</div>
+<input [ngModel]="variable" (ngModelChange)="variableChange($event)" type="text" />
 
-<!-- [ngModel]="variable" (ngModelChange)="variableChange($event)" [(ngModel)]="variable" -->
+<!-- <div>
+  <input #searchBox (input)="search(searchBox.value)" placeholder="Search" />
+</div> -->
+
+<!-- [(ngModel)]="variable"  -->
