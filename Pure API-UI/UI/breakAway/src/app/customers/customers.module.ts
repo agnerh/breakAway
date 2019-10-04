@@ -4,13 +4,13 @@ import { FormsModule } from '@angular/forms';
 
 import { CustomerRoutingModule } from './customer-routing.module';
 import { CustomersListComponent } from './customers-list/customers-list.component';
-import { CustomersSearchComponent } from './customers-search/customers-search.component';
+import { SearchComponent } from '../search/search-components/search.component';
 import { CustomerFilterPipe } from 'src/pipes/customer-filter.pipe';
 
 @NgModule({
   declarations: [
     CustomersListComponent,
-    CustomersSearchComponent,
+    SearchComponent,
     CustomerFilterPipe,
   ],
   imports: [
