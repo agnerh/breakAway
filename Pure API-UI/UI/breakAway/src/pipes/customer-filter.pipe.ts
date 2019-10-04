@@ -1,0 +1,19 @@
+import { Pipe, PipeTransform } from "@angular/core";
+import { analyzeAndValidateNgModules } from '@angular/compiler';
+import { Customer } from 'src/models/customer';
+
+@Pipe({ name: 'customerFilter' })
+export class CustomerFilterPipe implements PipeTransform {
+
+    transform(customers: Array<Customer>, filter: string) {
+        if (!filter || !customers) {
+            return customers;
+        }
+
+        console.log(filter.charAt(0).toUpperCase() + filter.slice(1));
+
+        
+        return customers.filter(f => f.firstName.indexOf(filter.charAt(0).toUpperCase() + filter.slice(1)) !== -1 || f.lastName.indexOf(filter.charAt(0).toUpperCase() + filter.slice(1)) !== -1);
+    }
+
+}
