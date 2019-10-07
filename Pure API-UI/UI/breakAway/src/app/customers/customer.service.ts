@@ -1,17 +1,14 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Customer } from 'src/models/customer';
+import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { Customer } from "src/models/customer";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class CustomerService {
-  customersUrl = '/api/customer';
+  customersUrl = "/api/customer";
 
-  constructor(
-    private http: HttpClient
-  ) {}
-
+  constructor(private http: HttpClient) {}
 
   getCustomers() {
     return this.http.get<Array<Customer>>(this.customersUrl);
