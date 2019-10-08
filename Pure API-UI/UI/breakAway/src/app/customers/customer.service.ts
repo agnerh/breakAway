@@ -14,7 +14,7 @@ export class CustomerService {
     return this.http.get<Array<Customer>>(this.customersUrl);
   }
 
-  create(customer: Customer) {
-    
+  postCustomer(customer: Customer) {
+    return this.http.post<Customer>(this.customersUrl, customer);
   }
 }

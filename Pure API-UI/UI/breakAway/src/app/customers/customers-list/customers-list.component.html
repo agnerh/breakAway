@@ -1,36 +1,116 @@
-<div class="container">
+<div class="container mt-3">
   <h2>Customers</h2>
-
+  <!--  -->
+  <h5 class="mt-4">Search customer</h5>
   <app-search (searchTerms)="addTerms($event)"></app-search>
-  <!-- <app-sort (sortByCategory)="addCategory($event)"></app-sort> -->
+  <!--  -->
+  <form>
+    <h5 class="mt-4">Create customer</h5>
+    <div class="form-row">
+      <div class="col">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Title"
+          name="title"
+          [(ngModel)]="input.title"
+        />
+      </div>
+      <div class="col">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="First name"
+          name="firstName"
+          [(ngModel)]="input.firstName"
+        />
+      </div>
+      <div class="col">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Last name"
+          name="lastName"
+          [(ngModel)]="input.lastName"
+        />
+      </div>
+      <div class="col">
+        <select class="form-control" [(ngModel)]="input.type" name="type">
+          <option [value]="CustomerType.Standard">Standard</option>
+          <option [value]="CustomerType.Silver">Silver</option>
+          <option [value]="CustomerType.Gold">Gold</option>
+        </select>
+      </div>
+    </div>
+    <button
+      type="submit"
+      class="btn btn-primary mt-2"
+      (click)="createCustomer()"
+    >
+      Create customer
+    </button>
+  </form>
+  <!--  -->
+  <h5 class="mt-4">Sort customers</h5>
   <div>
     <table class="table">
       <thead>
         <tr>
           <th scope="col">
-            <button type="button" class="btn btn-secondary" (click)="orderBy('id')" id="id">Id</button>
-            <span class="sortorder"></span>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              (click)="orderBy('id')"
+            >
+              Id
+            </button>
           </th>
           <th scope="col">
-            <button type="button" class="btn btn-secondary" (click)="orderBy('title')" id="title">Title</button>
-            <span class="sortorder"></span>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              (click)="orderBy('title')"
+            >
+              Title
+            </button>
           </th>
           <th scope="col">
-            <button type="button" class="btn btn-secondary" (click)="orderBy('firstName')" id="firstName">First Name</button>
-            <span class="sortorder"></span>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              (click)="orderBy('firstName')"
+            >
+              First Name
+            </button>
           </th>
           <th scope="col">
-            <button type="button" class="btn btn-secondary" (click)="orderBy('lastName')" id="lastName">Last Name</button>
-            <span class="sortorder"></span>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              (click)="orderBy('lastName')"
+            >
+              Last Name
+            </button>
           </th>
           <th scope="col">
-            <button type="button" class="btn btn-secondary" (click)="orderBy('type')" id="type">Category</button>
-            <span class="sortorder"></span>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              (click)="orderBy('type')"
+            >
+              Category
+            </button>
           </th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let customer of list1 | customerFilter: filter | customerSort: sortBy: reverse">
+        <tr
+          *ngFor="
+            let customer of list1
+              | customerFilter: filter
+              | customerSort: sortBy:reverse
+          "
+        >
           <td>{{ customer.id }}</td>
           <td>{{ customer.title }}</td>
           <td>{{ customer.firstName }}</td>
