@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 
 import { Customer } from "src/models/customer";
 import { CustomerService } from "../customer.service";
@@ -11,7 +11,9 @@ import { CustomerService } from "../customer.service";
 export class CustomersListComponent implements OnInit {
   public list1: Array<Customer>;
   public filter: string;
-  public sortBy: string = "id";
+  // public sortBy: string = "id";
+  public sortBy: string;
+  public reverse: boolean = false;
 
   constructor(private customerService: CustomerService) {}
 
@@ -28,6 +30,12 @@ export class CustomersListComponent implements OnInit {
   }
 
   orderBy(order: string) {
+    if (this.sortBy === order) {
+      this.reverse = !this.reverse;
+    } else {
+      this.reverse = false;
+    }
+    
     this.sortBy = order;
     // console.log(this.sortBy);
   }

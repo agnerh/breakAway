@@ -13,4 +13,8 @@ export class CustomerService {
   getCustomers() {
     return this.http.get<Array<Customer>>(this.customersUrl);
   }
+
+  create(customer: Customer) {
+    
+  }
 }

@@ -8,29 +8,29 @@
       <thead>
         <tr>
           <th scope="col">
-            <button type="button" class="btn btn-secondary"  (click)="orderBy('id')">Id</button>
+            <button type="button" class="btn btn-secondary" (click)="orderBy('id')" id="id">Id</button>
             <span class="sortorder"></span>
           </th>
           <th scope="col">
-            <button type="button" class="btn btn-secondary" (click)="orderBy('title')">Title</button>
+            <button type="button" class="btn btn-secondary" (click)="orderBy('title')" id="title">Title</button>
             <span class="sortorder"></span>
           </th>
           <th scope="col">
-            <button type="button" class="btn btn-secondary" (click)="orderBy('firstName')">First Name</button>
+            <button type="button" class="btn btn-secondary" (click)="orderBy('firstName')" id="firstName">First Name</button>
             <span class="sortorder"></span>
           </th>
           <th scope="col">
-            <button type="button" class="btn btn-secondary" (click)="orderBy('lastName')">Last Name</button>
+            <button type="button" class="btn btn-secondary" (click)="orderBy('lastName')" id="lastName">Last Name</button>
             <span class="sortorder"></span>
           </th>
           <th scope="col">
-            <button type="button" class="btn btn-secondary" (click)="orderBy('type')">Category</button>
+            <button type="button" class="btn btn-secondary" (click)="orderBy('type')" id="type">Category</button>
             <span class="sortorder"></span>
           </th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let customer of list1 | customerFilter: filter | customerSort: sortBy">
+        <tr *ngFor="let customer of list1 | customerFilter: filter | customerSort: sortBy: reverse">
           <td>{{ customer.id }}</td>
           <td>{{ customer.title }}</td>
           <td>{{ customer.firstName }}</td>
