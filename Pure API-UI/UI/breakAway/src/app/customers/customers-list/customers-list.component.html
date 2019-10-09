@@ -1,9 +1,9 @@
 <div class="container mt-3">
   <h2>Customers</h2>
-  <h5 class="mt-4">Search customer</h5>
-  <app-search (searchTerms)="addTerms($event)"></app-search>
-  <h5 class="mt-4">Create customer</h5>
-  <app-customers-create></app-customers-create>
+  <div class="row">
+      <app-search (searchTerms)="addTerms($event)"></app-search>
+      <a class="nav-link" routerLink="/create-customer">Create customer</a>
+  </div>
   <h5 class="mt-4">Sort customers</h5>
   <table class="table">
     <app-customers-sort class="sort-header" (clickBtn)="orderBy($event)"></app-customers-sort>
