@@ -1,142 +1,26 @@
 <div class="container mt-3">
   <h2>Customers</h2>
-  <!--  -->
   <h5 class="mt-4">Search customer</h5>
   <app-search (searchTerms)="addTerms($event)"></app-search>
-  <!--  -->
-  <form>
-    <h5 class="mt-4">Create customer</h5>
-    <div class="form-row">
-      <div class="col">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Title"
-          name="title"
-          [(ngModel)]="input.title"
-        />
-      </div>
-      <div class="col">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="First name"
-          name="firstName"
-          [(ngModel)]="input.firstName"
-        />
-      </div>
-      <div class="col">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Last name"
-          name="lastName"
-          [(ngModel)]="input.lastName"
-        />
-      </div>
-      <div class="col">
-        <select class="form-control" [(ngModel)]="input.type" name="type">
-          <option [value]="CustomerType.Standard">Standard</option>
-          <option [value]="CustomerType.Silver">Silver</option>
-          <option [value]="CustomerType.Gold">Gold</option>
-        </select>
-      </div>
-    </div>
-    <button
-      type="submit"
-      class="btn btn-primary mt-2"
-      (click)="createCustomer()"
-    >
-      Create customer
-    </button>
-  </form>
-  <!--  -->
+  <h5 class="mt-4">Create customer</h5>
+  <app-customers-create></app-customers-create>
   <h5 class="mt-4">Sort customers</h5>
-  <div>
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              (click)="orderBy('id')"
-            >
-              Id
-            </button>
-          </th>
-          <th scope="col">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              (click)="orderBy('title')"
-            >
-              Title
-            </button>
-          </th>
-          <th scope="col">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              (click)="orderBy('firstName')"
-            >
-              First Name
-            </button>
-          </th>
-          <th scope="col">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              (click)="orderBy('lastName')"
-            >
-              Last Name
-            </button>
-          </th>
-          <th scope="col">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              (click)="orderBy('type')"
-            >
-              Category
-            </button>
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr
-          *ngFor="
-            let customer of list1
-              | customerFilter: filter
-              | customerSort: sortBy:reverse
-          "
-        >
-          <td>{{ customer.id }}</td>
-          <td>{{ customer.title }}</td>
-          <td>{{ customer.firstName }}</td>
-          <td>{{ customer.lastName }}</td>
-          <td>{{ customer.type }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- <ul class="list-group list-unstyled">
-    <li
-      *ngFor="
-        let customer of list1 | customerFilter: filter | customerSort: orderBy
-      "
-      class="list-group-item"
-    >
-      <li
-      *ngFor="
-        let customer of list1 | customerFilter: filter | customerSort: sortBy
-      "
-      class="list-group-item"
-    >
-      <span>id: {{ customer.id }}.</span><br />
-      <div>name: {{ customer.firstName }} {{ customer.lastName }}</div>
-      <div>type: {{ customer.type }}</div>
-    </li>
-  </ul> -->
+  <table class="table">
+    <app-customers-sort class="sort-header" (clickBtn)="orderBy($event)"></app-customers-sort>
+    <tbody>
+      <tr
+        *ngFor="
+          let customer of list1
+            | customerFilter: filter
+            | customerSort: sortBy:reverse
+        "
+      >
+        <td>{{ customer.id }}</td>
+        <td>{{ customer.title }}</td>
+        <td>{{ customer.firstName }}</td>
+        <td>{{ customer.lastName }}</td>
+        <td>{{ customer.type }}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>

@@ -4,3 +4,7 @@
 .sortorder.reverse:after {
   content: "\25bc";
 } */
+
+.sort-header {
+  display: contents;
+}

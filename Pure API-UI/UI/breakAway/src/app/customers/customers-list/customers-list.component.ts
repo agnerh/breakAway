@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 
-import { Customer, CustomerType } from "src/models/customer";
+import { Customer } from "src/models/customer";
 import { CustomerService } from "../customer.service";
 
 @Component({
@@ -13,8 +13,6 @@ export class CustomersListComponent implements OnInit {
   public filter: string;
   public sortBy: string;
   public reverse: boolean = false;
-  public input: Customer = new Customer();
-  public CustomerType = CustomerType;
 
   constructor(private customerService: CustomerService) {}
 
@@ -24,11 +22,6 @@ export class CustomersListComponent implements OnInit {
 
   showCustomers() {
     this.customerService.getCustomers().subscribe(data => (this.list1 = data));
-  }
-
-  createCustomer() {
-    console.log(this.input);
-    this.customerService.postCustomer(this.input).subscribe(data => (this.input = data));
   }
 
   addTerms(newTerm: string) {

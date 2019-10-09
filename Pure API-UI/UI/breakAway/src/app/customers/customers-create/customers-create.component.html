@@ -1,0 +1,46 @@
+<form>
+  <div class="form-row">
+    <div class="col">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Title"
+        name="title"
+        [(ngModel)]="input.title"
+      />
+    </div>
+    <div class="col">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="First name"
+        name="firstName"
+        [(ngModel)]="input.firstName"
+      />
+    </div>
+    <div class="col">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Last name"
+        name="lastName"
+        [(ngModel)]="input.lastName"
+      />
+    </div>
+    <div class="col">
+      <select
+        id="inputState"
+        class="form-control"
+        [(ngModel)]="input.type"
+        name="type"
+      >
+        <option [value]="CustomerType.Standard">Standard</option>
+        <option [value]="CustomerType.Silver">Silver</option>
+        <option [value]="CustomerType.Gold">Gold</option>
+      </select>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary mt-2" (click)="createCustomer()">
+    Create customer
+  </button>
+</form>
