@@ -1,0 +1,26 @@
+<div class="container mt-5">
+  <h2>Create new activity</h2>
+  <form class="row">
+    <div class="col">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Activity name"
+        name="name"
+        [(ngModel)]="input.name"
+      />
+    </div>
+    <div class="col">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Category"
+        name="category"
+        [(ngModel)]="input.category"
+      />
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="createActivity()">
+      Save activity
+    </button>
+  </form>
+</div>

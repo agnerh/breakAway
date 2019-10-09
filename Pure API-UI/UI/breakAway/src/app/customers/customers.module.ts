@@ -4,21 +4,26 @@ import { FormsModule } from "@angular/forms";
 
 import { CustomerRoutingModule } from "./customer-routing.module";
 import { CustomersListComponent } from "./customers-list/customers-list.component";
-import { SearchComponent } from "../search/search-components/search.component";
 import { CustomerFilterPipe } from "src/pipes/customer-filter.pipe";
-import { CustomerSortPipe } from "src/pipes/customer-sort.pipe";
+import { SortPipe } from "src/pipes/sort.pipe";
 import { CustomersSortComponent } from "./customers-sort/customers-sort.component";
 import { CustomersCreateComponent } from "./customers-create/customers-create.component";
+import { SearchModule } from '../search/search.module';
+
 
 @NgModule({
   declarations: [
     CustomersListComponent,
-    SearchComponent,
     CustomerFilterPipe,
-    CustomerSortPipe,
+    SortPipe,
     CustomersSortComponent,
     CustomersCreateComponent
   ],
-  imports: [CommonModule, CustomerRoutingModule, FormsModule]
+  imports: [
+    CommonModule,
+    CustomerRoutingModule,
+    FormsModule,
+    SearchModule,
+  ]
 })
 export class CustomersModule {}

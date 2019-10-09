@@ -1,8 +1,21 @@
-<div class="container">
-    <h2>Activities</h2>
-    <ul class="list-group">
-        <li *ngFor="let activity of list2" class="list-group-item">
-            <span>{{activity.id}}.</span> {{activity.name}}
-        </li>
-    </ul>
+<div class="container mt-3">
+  <h2>Activities</h2>
+  <div class="row">
+    <app-search (searchTerms)="addTerms($event)"></app-search>
+    <a class="nav-link" routerLink="/create-activity">Create activity</a>
+  </div>
+  <h5 class="mt-4">Sort customers</h5>
+  <table class="table">
+    <app-activities-sort
+      class="sort-header"
+      (clickBtn)="orderBy($event)"
+    ></app-activities-sort>
+    <tbody>
+      <tr *ngFor="let activity of list2 | activityFilter: filter">
+        <td>{{ activity.id }}</td>
+        <td>{{ activity.name }}</td>
+        <td>{{ activity.category }}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>

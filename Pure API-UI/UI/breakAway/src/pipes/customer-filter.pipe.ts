@@ -4,7 +4,6 @@ import { Customer } from "src/models/customer";
 @Pipe({ name: "customerFilter" })
 export class CustomerFilterPipe implements PipeTransform {
   transform(customers: Array<Customer>, filter: string) {
-    // console.log(customers.filter(f => f.firstName.indexOf(filter)));
     if (!filter || !customers) {
       return customers;
     }

@@ -1,14 +1,15 @@
 import { Pipe, PipeTransform } from "@angular/core";
 import { Customer } from "src/models/customer";
+import { Activity } from 'src/models/activity';
 
-@Pipe({ name: "customerSort" })
-export class CustomerSortPipe implements PipeTransform {
-  transform(customers: Array<Customer>, sortBy: string, reverse: boolean) {
-    if (!sortBy || !customers) {
-      return customers;
+@Pipe({ name: "sortColumns" })
+export class SortPipe implements PipeTransform {
+  transform(item: Array<Customer | Activity>, sortBy: string, reverse: boolean) {
+    if (!sortBy || !item) {
+      return item;
     }
 
-    return (customers = customers.sort((a: Customer, b: Customer) => {
+    return item.sort((a: Customer | Activity, b: Customer | Activity) => {
       if (!a[sortBy] && !b[sortBy]) {
         return 0;
       } else if (!a[sortBy] && b[sortBy]) {
@@ -50,6 +51,6 @@ export class CustomerSortPipe implements PipeTransform {
           return a[sortBy] - b[sortBy];
         }
       }
-    }));
+    });
   }
 }

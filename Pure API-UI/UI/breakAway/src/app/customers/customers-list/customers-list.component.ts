@@ -28,6 +28,10 @@ export class CustomersListComponent implements OnInit {
     this.filter = newTerm;
   }
 
+  asCustomer(customer: any): Customer {
+    return customer as Customer;
+  }
+
   orderBy(order: string) {
     if (this.sortBy === order) {
       this.reverse = !this.reverse;

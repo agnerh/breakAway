@@ -10,6 +10,9 @@ import { ActivityService } from "../activity.service";
 })
 export class ActivitiesListComponent implements OnInit {
   public list2: Array<Activity>;
+  public filter: string;
+  public sortBy: string;
+  public reverse: boolean = false;
 
   constructor(private activityService: ActivityService) {}
 
@@ -19,5 +22,19 @@ export class ActivitiesListComponent implements OnInit {
 
   showActivities() {
     this.activityService.getActivities().subscribe(data => (this.list2 = data));
+  }
+
+  addTerms(newTerm: string) {
+    this.filter = newTerm;
+  }
+
+  orderBy(order: string) {
+    if (this.sortBy === order) {
+      this.reverse = !this.reverse;
+    } else {
+      this.reverse = false;
+    }
+
+    this.sortBy = order;
   }
 }

@@ -13,4 +13,9 @@ export class ActivityService {
   getActivities() {
     return this.http.get<Array<Activity>>(this.activitiesUrl);
   }
+
+  
+  postActivity(activity: Activity) {
+    return this.http.post<Activity>(this.activitiesUrl, activity);
+  }
 }

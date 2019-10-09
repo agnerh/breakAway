@@ -1,25 +1,26 @@
 <div class="container mt-3">
   <h2>Customers</h2>
   <div class="row">
-      <app-search (searchTerms)="addTerms($event)"></app-search>
-      <a class="nav-link" routerLink="/create-customer">Create customer</a>
+    <app-search (searchTerms)="addTerms($event)"></app-search>
+    <a class="nav-link" routerLink="/create-customer">Create customer</a>
   </div>
   <h5 class="mt-4">Sort customers</h5>
   <table class="table">
-    <app-customers-sort class="sort-header" (clickBtn)="orderBy($event)"></app-customers-sort>
+    <app-customers-sort
+      class="sort-header"
+      (clickBtn)="orderBy($event)"
+    ></app-customers-sort>
     <tbody>
       <tr
         *ngFor="
           let customer of list1
             | customerFilter: filter
-            | customerSort: sortBy:reverse
-        "
-      >
+            | sortColumns: sortBy:reverse">
         <td>{{ customer.id }}</td>
-        <td>{{ customer.title }}</td>
-        <td>{{ customer.firstName }}</td>
-        <td>{{ customer.lastName }}</td>
-        <td>{{ customer.type }}</td>
+        <td>{{ asCustomer(customer).title }}</td>
+        <td>{{ asCustomer(customer).firstName }}</td>
+        <td>{{ asCustomer(customer).lastName }}</td>
+        <td>{{ asCustomer(customer).type }}</td>
       </tr>
     </tbody>
   </table>
