@@ -94,7 +94,11 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/scripts/jquery-3.3.1.slim.min",
+              "src/scripts/popper.min.js",
+              "src/scripts/bootstrap.min.js"
+            ]
           }
         },
         "lint": {

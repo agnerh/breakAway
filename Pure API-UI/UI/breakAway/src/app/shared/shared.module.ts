@@ -5,17 +5,20 @@ import { FormsModule } from "@angular/forms";
 import { SearchComponent } from "./search-components/search.component";
 import { SortPipe } from "src/app/shared/sort.pipe";
 import { FilterPipe } from './filter.pipe';
+import { TooltipDirective } from './tooltip.directive';
 
 @NgModule({
   declarations: [
     SearchComponent,
     SortPipe,
-    FilterPipe
+    FilterPipe,
+    TooltipDirective
   ],
   exports: [
     SearchComponent,
     SortPipe,
-    FilterPipe
+    FilterPipe,
+    TooltipDirective
   ],
   imports: [
     CommonModule, 
