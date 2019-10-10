@@ -11,6 +11,7 @@ import { CustomerService } from "../customer.service";
 export class CustomersListComponent implements OnInit {
   public list1: Array<Customer>;
   public filter: string;
+  public props: Array<string> = ['firstName', 'lastName'];
   public sortBy: string;
   public reverse: boolean = false;
 

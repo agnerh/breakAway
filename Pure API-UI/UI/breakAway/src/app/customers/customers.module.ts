@@ -4,18 +4,15 @@ import { FormsModule } from "@angular/forms";
 
 import { CustomerRoutingModule } from "./customer-routing.module";
 import { CustomersListComponent } from "./customers-list/customers-list.component";
-import { CustomerFilterPipe } from "src/pipes/customer-filter.pipe";
-import { SortPipe } from "src/pipes/sort.pipe";
-import { CustomersSortComponent } from "./customers-sort/customers-sort.component";
 import { CustomersCreateComponent } from "./customers-create/customers-create.component";
-import { SearchModule } from '../search/search.module';
+import { CustomersSortComponent } from "./customers-sort/customers-sort.component";
+
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
   declarations: [
     CustomersListComponent,
-    CustomerFilterPipe,
-    SortPipe,
     CustomersSortComponent,
     CustomersCreateComponent
   ],
@@ -23,7 +20,7 @@ import { SearchModule } from '../search/search.module';
     CommonModule,
     CustomerRoutingModule,
     FormsModule,
-    SearchModule,
+    SharedModule,
   ]
 })
 export class CustomersModule {}

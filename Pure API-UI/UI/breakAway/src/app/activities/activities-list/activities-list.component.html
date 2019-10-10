@@ -2,7 +2,7 @@
   <h2>Activities</h2>
   <div class="row">
     <app-search (searchTerms)="addTerms($event)"></app-search>
-    <a class="nav-link" routerLink="/create-activity">Create activity</a>
+    <a class="nav-link" routerLink="/create-activity">Create new activity</a>
   </div>
   <h5 class="mt-4">Sort customers</h5>
   <table class="table">
@@ -11,7 +11,13 @@
       (clickBtn)="orderBy($event)"
     ></app-activities-sort>
     <tbody>
-      <tr *ngFor="let activity of list2 | activityFilter: filter">
+      <tr
+        *ngFor="
+          let activity of list2
+            | sort: sortBy:reverse
+            | filter: props:filter
+        "
+      >
         <td>{{ activity.id }}</td>
         <td>{{ activity.name }}</td>
         <td>{{ activity.category }}</td>

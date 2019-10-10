@@ -14,8 +14,8 @@
       <tr
         *ngFor="
           let customer of list1
-            | customerFilter: filter
-            | sortColumns: sortBy:reverse">
+            | filter: props:filter
+            | sort: sortBy:reverse">
         <td>{{ customer.id }}</td>
         <td>{{ asCustomer(customer).title }}</td>
         <td>{{ asCustomer(customer).firstName }}</td>

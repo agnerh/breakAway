@@ -2,7 +2,7 @@ import { Pipe, PipeTransform } from "@angular/core";
 import { Customer } from "src/models/customer";
 import { Activity } from 'src/models/activity';
 
-@Pipe({ name: "sortColumns" })
+@Pipe({ name: "sort" })
 export class SortPipe implements PipeTransform {
   transform(item: Array<Customer | Activity>, sortBy: string, reverse: boolean) {
     if (!sortBy || !item) {

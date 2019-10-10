@@ -10,6 +10,7 @@ import { ActivityService } from "../activity.service";
 })
 export class ActivitiesListComponent implements OnInit {
   public list2: Array<Activity>;
+  public props: Array<string> = ['name', 'category'];
   public filter: string;
   public sortBy: string;
   public reverse: boolean = false;
