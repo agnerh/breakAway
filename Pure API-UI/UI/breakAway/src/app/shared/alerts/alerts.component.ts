@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { AlertsType, Alert } from './alert';
-
-declare const $: any;
+import { AlertsCommunicationService } from './alerts.commservice';
 
 @Component({
   selector: "app-alerts",
@@ -13,9 +12,10 @@ export class AlertsComponent implements OnInit {
   public Type = AlertsType;
   public alert: Alert = { type: AlertsType.Dark, message: "This is a message" };
   
-  constructor() {}
+  constructor(private alertService: AlertsCommunicationService) {}
 
   public ngOnInit() {
+    this.alertService.alerts.subscribe(alert => console.log("Alert: ", alert));
   }
 
   public showAlert(): void {

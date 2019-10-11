@@ -7,6 +7,7 @@ import { SortPipe } from "src/app/shared/sort.pipe";
 import { FilterPipe } from './filter.pipe';
 import { TooltipDirective } from './tooltip.directive';
 import { AlertsComponent } from './alerts/alerts.component';
+import { AlertsCommunicationService } from './alerts/alerts.commservice';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,10 @@ import { AlertsComponent } from './alerts/alerts.component';
   ],
   imports: [
     CommonModule, 
-    FormsModule]
+    FormsModule,
+  ],
+  providers: [
+    AlertsCommunicationService,
+  ]
 })
 export class SharedModule {}
