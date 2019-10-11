@@ -14,7 +14,6 @@ export class CustomersListComponent implements OnInit {
   public props: Array<string> = ['firstName', 'lastName'];
   public sortBy: string;
   public reverse: boolean = false;
-  public placement: string;
 
   constructor(private customerService: CustomerService) {}
 

@@ -1,27 +1,19 @@
-import { Directive, ElementRef, HostListener, Input } from "@angular/core";
-import * as $ from "jquery";
+import { Directive, ElementRef, OnInit, Input } from "@angular/core";
+
+declare const $: any;
 
 @Directive({
   selector: "[appTooltip]"
 })
-export class TooltipDirective {
+export class TooltipDirective implements OnInit {
   constructor(private el: ElementRef) {}
 
-  @Input("appTooltip") tooltipPlacement: string;
+  @Input("appTooltip") appTooltipText: string;
 
-  @HostListener("mouseenter") onMouseEnter() {
-    this.tooltip(this.tooltipPlacement || "top");
-  }
-
-  @HostListener("mouseleave") onMouseLeave() {
-    this.tooltip(null);
-  }
-
-  private tooltip(placement: string) {
-    this.el.nativeElement.style.backgroundColor = placement;
-
-    $(function() {
-      $('[data-toggle="tooltip"]').tooltip();
+  public ngOnInit(): void {
+    $(this.el.nativeElement).tooltip({
+      placement: "top",
+      title: this.appTooltipText
     });
   }
 }

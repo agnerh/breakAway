@@ -2,6 +2,7 @@
   <tr>
     <th scope="col">
       <button
+        [appTooltip]="'Sort by Id'"
         type="button"
         class="btn btn-secondary"
         (click)="variableChange('id')"
@@ -11,6 +12,7 @@
     </th>
     <th scope="col">
       <button
+        [appTooltip]="'Sort by name'"
         type="button"
         class="btn btn-secondary"
         (click)="variableChange('name')"
@@ -20,6 +22,7 @@
     </th>
     <th scope="col">
       <button
+        [appTooltip]="'Sort by category'"
         type="button"
         class="btn btn-secondary"
         (click)="variableChange('category')"
