@@ -1,0 +1,29 @@
+<button (click)="showAlert()" type="button" [ngClass]="'btn btn-info'">
+  Info
+</button>
+<div
+  *ngIf="show"
+  class="alert"
+  role="alert"
+  [ngClass]="{
+    'alert-primary': alert.type === Type.Primary,
+    'alert-secondary': alert.type === Type.Secondary,
+    'alert-success': alert.type === Type.Success,
+    'alert-danger': alert.type === Type.Danger,
+    'alert-warning': alert.type === Type.Warning,
+    'alert-info': alert.type === Type.Info,
+    'alert-light': alert.type === Type.Light,
+    'alert-dark': alert.type === Type.Dark
+  }"
+>
+  {{ alert.message }}
+  <button
+    (click)="hideAlert()"
+    type="button"
+    class="close"
+    data-dismiss="alert"
+    aria-label="Close"
+  >
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>

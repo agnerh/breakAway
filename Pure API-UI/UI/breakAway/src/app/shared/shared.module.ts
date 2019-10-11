@@ -6,19 +6,22 @@ import { SearchComponent } from "./search-components/search.component";
 import { SortPipe } from "src/app/shared/sort.pipe";
 import { FilterPipe } from './filter.pipe';
 import { TooltipDirective } from './tooltip.directive';
+import { AlertsComponent } from './alerts/alerts.component';
 
 @NgModule({
   declarations: [
     SearchComponent,
     SortPipe,
     FilterPipe,
-    TooltipDirective
+    TooltipDirective,
+    AlertsComponent
   ],
   exports: [
     SearchComponent,
     SortPipe,
     FilterPipe,
-    TooltipDirective
+    TooltipDirective,
+    AlertsComponent
   ],
   imports: [
     CommonModule, 

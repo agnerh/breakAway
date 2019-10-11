@@ -1,8 +1,11 @@
 <div class="container mt-3">
+  <app-alerts></app-alerts>
   <h2>Customers</h2>
-  <div class="row">
+  <div class="row ml-0">
     <app-search (searchTerms)="addTerms($event)"></app-search>
-    <a class="nav-link" routerLink="/create-customer">Create customer</a>
+  </div>
+  <div class="row ml-0 mt-4">
+    <button type="button" routerLink="/create-customer" class="btn btn-primary">Create new customer</button>
   </div>
   <h5 class="mt-4">Sort customers</h5>
   <table class="table">
