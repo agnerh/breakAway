@@ -13,9 +13,10 @@ import { AlertsCommunicationService } from "src/app/shared/alerts/alerts.commser
 export class CustomersCreateComponent implements OnInit {
   public input: Customer = new Customer();
   public CustomerType = CustomerType;
-  // public show: boolean = false;
-  // public Type = AlertsType;
-  public alert: Alert = { type: AlertsType.Dark, message: "This is a message" };
+  public alert: Alert = {
+    type: AlertsType.Danger,
+    message: "This is a message"
+  };
 
   constructor(
     private customerService: CustomerService,
@@ -25,11 +26,15 @@ export class CustomersCreateComponent implements OnInit {
   ngOnInit() {}
 
   createCustomer() {
-    console.log(this.input);
+    // console.log(this.input);
     this.customerService
       .postCustomer(this.input)
       .subscribe(data => (this.input = data));
-    
+
     this.alertService.showAlert(this.alert);
+
+    this.alertService.alerts.subscribe(alert => {
+      this.alert = alert;
+    });
   }
 }

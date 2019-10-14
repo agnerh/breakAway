@@ -10,12 +10,15 @@ import { AlertsCommunicationService } from './alerts.commservice';
 export class AlertsComponent implements OnInit {
   public show: boolean = false;
   public Type = AlertsType;
-  public alert: Alert = { type: AlertsType.Dark, message: "This is a message" };
+  public alert: Alert;
   
   constructor(private alertService: AlertsCommunicationService) {}
 
   public ngOnInit() {
-    this.alertService.alerts.subscribe(alert => console.log("Alert: ", alert));
+    this.alertService.alerts.subscribe(alert => {
+      this.showAlert();
+      this.alert = alert;
+    });
   }
 
   public showAlert(): void {

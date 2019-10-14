@@ -99,7 +99,7 @@
               "src/styles.css"
             ],
             "scripts": [
-              "src/scripts/jquery-3.3.1.slim.min",
+              "src/scripts/jquery-3.3.1.slim.min.js",
               "src/scripts/popper.min.js",
               "src/scripts/bootstrap.min.js"
             ]
