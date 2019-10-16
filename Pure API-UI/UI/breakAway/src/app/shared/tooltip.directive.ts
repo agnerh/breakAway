@@ -13,7 +13,9 @@ export class TooltipDirective implements OnInit {
   public ngOnInit(): void {
     $(this.el.nativeElement).tooltip({
       placement: "top",
-      title: this.appTooltipText
+      title: this.appTooltipText,
+      sanitize: false,
+      sanitizeFn: content => content
     });
   }
 }

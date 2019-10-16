@@ -29,7 +29,7 @@ export class CustomersCreateComponent implements OnInit {
     // console.log(this.input);
     this.customerService
       .postCustomer(this.input)
-      .subscribe(data => (this.input = data));
+       .subscribe(data => (this.input = data));
 
     this.alertService.showAlert(this.alert);
   }

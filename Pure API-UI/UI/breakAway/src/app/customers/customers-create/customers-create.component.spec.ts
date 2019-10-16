@@ -8,7 +8,7 @@ import { FormsModule } from "@angular/forms";
 import { AlertsCommunicationService } from "src/app/shared/alerts/alerts.commservice";
 import { CustomerService } from "../customer.service";
 import { AlertsType, Alert } from "src/app/shared/alerts/alert";
-import { Customer } from 'src/models/customer';
+import { Customer, CustomerType } from 'src/models/customer';
 
 @Component({ selector: "app-alerts", template: "" })
 class AlertsStubComponent {}
@@ -22,6 +22,7 @@ describe("CustomersCreateComponent", () => {
     message: "This is a message",
     type: AlertsType.Danger
   };
+  const customer: Customer = new Customer();
 
   beforeEach(async(() => {
     alertServiceStub = {
@@ -32,8 +33,10 @@ describe("CustomersCreateComponent", () => {
     spyOn(alertServiceStub, "showAlert");
 
     customerServiceStub = {
-      postCustomer: (customer: Customer) => of(customer),
+      postCustomer: (customerTest: Customer) => of(customer)
     }
+
+    spyOn(customerServiceStub, "postCustomer").and.callThrough();
 
     TestBed.configureTestingModule({
       declarations: [CustomersCreateComponent, AlertsStubComponent],
@@ -60,5 +63,27 @@ describe("CustomersCreateComponent", () => {
     component.createCustomer();
     fixture.detectChanges();
     expect(alertServiceStub.showAlert).toHaveBeenCalled();
+  });
+
+  it('should call post customer', () => {
+    component.createCustomer();
+    fixture.detectChanges();
+    expect(customerServiceStub.postCustomer).toHaveBeenCalled();
+  });
+
+  it('should call post customer with correct arguments', () => {
+    component.input.title = "Mr";
+    component.input.firstName = "John";
+    component.input.lastName = "Doe";
+    component.input.type = CustomerType.Gold;
+
+    fixture.detectChanges();
+    component.createCustomer();
+    expect(customerServiceStub.postCustomer).toHaveBeenCalledWith(jasmine.objectContaining({
+      title: "Mr",
+      firstName: "John",
+      lastName: "Doe",
+      type: CustomerType.Gold
+    }));
   });
 });

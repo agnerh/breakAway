@@ -5,3 +5,19 @@
   content: "\25bc";
 } */
 
+.bronze {
+  color: brown;
+}
+
+.silver {
+  color: silver;
+}
+
+.gold {
+  color: gold;
+}
+
+.cl-margin {
+  margin-right: unset;
+  margin-left: unset;
+}
