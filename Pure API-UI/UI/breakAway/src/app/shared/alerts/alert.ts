@@ -10,7 +10,7 @@ export enum AlertsType {
     Danger = 4,
     Warning = 5,
     Info = 6,
-    Ligth = 7,
+    Light = 7,
     Dark = 8
 }
   

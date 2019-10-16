@@ -32,9 +32,5 @@ export class CustomersCreateComponent implements OnInit {
       .subscribe(data => (this.input = data));
 
     this.alertService.showAlert(this.alert);
-
-    this.alertService.alerts.subscribe(alert => {
-      this.alert = alert;
-    });
   }
 }

@@ -31,4 +31,3 @@ describe("AlertsCommService", () => {
     service.showAlert(testAlert);
   });
 });
-
