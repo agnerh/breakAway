@@ -1,0 +1,37 @@
+<div class="container">
+  <nav
+    class="navbar navbar-expand-lg navbar-light bg-light navbar-dark bg-dark nav-box"
+  >
+    <i class="fas fa-anchor mr-3 text-light"></i>
+    <a class="navbar-brand" href="home/home-main">{{ title }}</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/home/home-main">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/customers/customers-list"
+            >Customers</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/activities/activities-list"
+            >Activities</a
+          >
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+<router-outlet></router-outlet>

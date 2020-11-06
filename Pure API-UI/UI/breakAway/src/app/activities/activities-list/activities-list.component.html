@@ -1,0 +1,29 @@
+<div class="container mt-3">
+  <h2>Activities</h2>
+  <div class="row ml-0">
+    <app-search (searchTerms)="addTerms($event)"></app-search>
+  </div>
+  <div class="row ml-0 mt-4">
+    <button type="button" routerLink="/create-activity" class="btn btn-primary">
+      Create new activity
+    </button>
+  </div>
+  <h5 class="mt-4">Sort customers</h5>
+  <table class="table table-striped">
+    <app-activities-sort
+      class="sort-header"
+      (clickBtn)="orderBy($event)"
+    ></app-activities-sort>
+    <tbody>
+      <tr
+        *ngFor="
+          let activity of list2 | sort: sortBy:reverse | filter: props:filter
+        "
+      >
+        <td>{{ activity.id }}</td>
+        <td>{{ activity.name }}</td>
+        <td>{{ activity.category }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

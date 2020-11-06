@@ -1,0 +1,23 @@
+/* .sortorder:after {
+  content: "\25b2";
+}
+.sortorder.reverse:after {
+  content: "\25bc";
+} */
+
+.bronze {
+  color: brown;
+}
+
+.silver {
+  color: silver;
+}
+
+.gold {
+  color: gold;
+}
+
+.cl-margin {
+  margin-right: unset;
+  margin-left: unset;
+}

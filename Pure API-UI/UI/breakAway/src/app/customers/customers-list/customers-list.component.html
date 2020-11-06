@@ -1,0 +1,42 @@
+<div class="container mt-3">
+  <h2>Customers</h2>
+  <div class="mr-0 ml-0 d-flex justify-content-between">
+    <app-search (searchTerms)="addTerms($event)"></app-search>
+    <button type="button" routerLink="/create-customer" class="btn btn-primary">
+      Create new customer
+    </button>
+  </div>
+  <h5 class="mt-4">Sort customers</h5>
+  <table class="table table-striped">
+    <app-customers-sort
+      class="sort-header"
+      (clickBtn)="orderBy($event)"
+    ></app-customers-sort>
+    <tbody>
+      <tr
+        *ngFor="
+          let customer of list1 | filter: props:filter | sort: sortBy:reverse
+        "
+      >
+        <td>{{ customer.id }}</td>
+        <td>{{ asCustomer(customer).title }}</td>
+        <td>{{ asCustomer(customer).firstName }}</td>
+        <td>{{ asCustomer(customer).lastName }}</td>
+        <td class="row cl-margin">
+          <div class="mr-3 ml-3">
+              {{ asCustomer(customer).type }}
+          </div>
+          <div *ngIf="asCustomer(customer).type === 1">
+              <i class="fas fa-award bronze"></i>
+          </div>
+          <div *ngIf="asCustomer(customer).type === 2">
+              <i class="fas fa-award silver"></i>
+          </div>
+          <div *ngIf="asCustomer(customer).type === 3">
+              <i class="fas fa-award gold"></i>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

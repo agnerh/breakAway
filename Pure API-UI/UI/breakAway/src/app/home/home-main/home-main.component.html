@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">{{ title }}</h1>
+      <p class="lead">
+        Praesent mattis quam sed dui lobortis rutrum. Nunc sodales diam lacus,
+        aliquam efficitur lorem mattis id. Sed non varius mauris. Etiam quis
+        iaculis eros. In in tristique risus.
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h2>Top Activities</h2>
+      <div *ngFor="let activity of list2; let i = index">
+        <div *ngIf="i < 3">
+          {{ activity.name }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
